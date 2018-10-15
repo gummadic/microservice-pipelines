@@ -40,8 +40,7 @@ String createTempLocation(String path) {
   */
 String copyGlobalLibraryScript(String srcPath, String destPath = null) {
   def workspace = env.WORKSPACE
-  destPath = destPath ?: workspace
-  writeFile file: destPath, text: libraryResource(srcPath)
+  writeFile file: workspace, text: libraryResource(srcPath)
   echo "copyGlobalLibraryScript: copied ${srcPath} to ${destPath}"
   return destPath
 }
