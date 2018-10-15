@@ -28,7 +28,7 @@ def createTestJob(JobName, repoUrl) {
             }
         }
         triggers {
-            cron("H/5 * * * *")
+            periodic(5)
         }
     }
 }
