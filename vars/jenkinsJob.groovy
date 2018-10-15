@@ -28,7 +28,8 @@ def packageArtifact(){
 @NonCPS
 String createTempLocation(String path) {
   String tmpDir = pwd tmp: true
-  return tmpDir + File.separator + new File(path).getName()
+  def workspace = env.WORKSPACE
+  return workspace + File.separator + new File(path).getName()
 }
 
 /**
@@ -36,20 +37,20 @@ String createTempLocation(String path) {
   *
   * @param srcPath path within the resources/ subdirectory of this repo
   * @param destPath destination path (optional)
-  * @return path to local file createTempLocation(srcPath)
+  * @return path to local file
   */
 String copyGlobalLibraryScript(String srcPath, String destPath = null) {
-  def workspace = env.WORKSPACE
-  writeFile file: workspace, text: libraryResource(srcPath)
+  destPath = destPath ?: createTempLocation(srcPath)
+  writeFile file: destPath, text: libraryResource(srcPath)
   echo "copyGlobalLibraryScript: copied ${srcPath} to ${destPath}"
   return destPath
 }
 
 
+
 def buildAndTest(){
     stage("Backend tests"){
-        tmp = copyGlobalLibraryScript('test.sh')
-        sh "cat tmp"
+        copyGlobalLibraryScript('test.sh')
         sh "ls -lrt"
     }
 }
