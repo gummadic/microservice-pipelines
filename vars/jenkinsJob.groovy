@@ -52,5 +52,6 @@ def buildAndTest(){
     stage("Backend tests"){
         copyGlobalLibraryScript('test.sh')
         sh "ls -lrt"
+        sh "cat test.sh"
     }
 }
