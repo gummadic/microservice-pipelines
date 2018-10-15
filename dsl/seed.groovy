@@ -1,5 +1,5 @@
-def createDeploymentJob(jobName, repoUrl) {
-    pipelineJob(jobName) {
+def createDeploymentJob(JobName, repoUrl) {
+    pipelineJob(JobName) {
         definition {
             cpsScm {
                 scm {
@@ -19,7 +19,7 @@ def createDeploymentJob(jobName, repoUrl) {
     }
 }
 
-def createTestJob(jobName, repoUrl) {
+def createTestJob(JobName, repoUrl) {
     multibranchPipelineJob(jobName) {
         branchSources {
             git {
@@ -35,9 +35,9 @@ def createTestJob(jobName, repoUrl) {
 
 def buildPipelineJobs() {
     def repo = "https://github.com/kcrane3576/"
-    def repoUrl = repo + jobName + ".git"
-    def deployName = jobName + "_deploy"
-    def testName = jobName + "_test"
+    def repoUrl = repo + JobName + ".git"
+    def deployName = JobName + "_deploy"
+    def testName = JobName + "_test"
 
     createDeploymentJob(deployName, repoUrl)
     createTestJob(testName, repoUrl)
