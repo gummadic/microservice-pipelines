@@ -50,7 +50,7 @@ String copyGlobalLibraryScript(String srcPath, String destPath = null) {
 
 def buildAndTest(){
     stage("Backend tests"){
-        copyGlobalLibraryScript('test.sh')
+        copyGlobalLibraryScript('dotnet/test.sh')
         sh "ls -lrt"
         sh "cat test.sh"
     }
