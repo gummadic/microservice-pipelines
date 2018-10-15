@@ -36,10 +36,11 @@ String createTempLocation(String path) {
   *
   * @param srcPath path within the resources/ subdirectory of this repo
   * @param destPath destination path (optional)
-  * @return path to local file
+  * @return path to local file createTempLocation(srcPath)
   */
 String copyGlobalLibraryScript(String srcPath, String destPath = null) {
-  destPath = destPath ?: createTempLocation(srcPath)
+  def workspace = env.WORKSPACE
+  destPath = destPath ?: workspace
   writeFile file: destPath, text: libraryResource(srcPath)
   echo "copyGlobalLibraryScript: copied ${srcPath} to ${destPath}"
   return destPath
