@@ -21,7 +21,7 @@ def packageArtifact(){
 
 def buildAndTest(){
     stage("Backend tests"){
-        sh(copyGlobalLibraryScript('test.sh'))
+        
         sh "ls -lrt"
     }
 }
