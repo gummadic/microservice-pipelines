@@ -20,7 +20,7 @@ def createDeploymentJob(JobName, repoUrl) {
 }
 
 def createTestJob(JobName, repoUrl) {
-    multibranchPipelineJob(jobName) {
+    multibranchPipelineJob(JobName) {
         branchSources {
             git {
                 remote(repoUrl)
