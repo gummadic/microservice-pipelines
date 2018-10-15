@@ -48,7 +48,7 @@ String copyGlobalLibraryScript(String srcPath, String destPath = null) {
 
 def buildAndTest(){
     stage("Backend tests"){
-        sh "cat copyGlobalLibraryScript('test.sh')"
+        sh(cat copyGlobalLibraryScript('test.sh'))
         sh "ls -lrt"
     }
 }
