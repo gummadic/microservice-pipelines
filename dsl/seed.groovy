@@ -1,5 +1,7 @@
+#!/usr/bin/env groovy
 
-
+import jenkins.model.*
+    
 def createTestJob(JobName, repoUrl) {
     folder('folder-test') {
     description('Folder containing all jobs for folder-test')
