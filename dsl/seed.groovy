@@ -1,6 +1,6 @@
 
 
-def createTestJob(JobName, repoUrl='https://github.com/gummadic/poc-micro.git') {
+def createTestJob(JobName, repoUrl) {
     folder('folder-test') {
     description('Folder containing all jobs for folder-test')
     }
@@ -19,7 +19,7 @@ def createTestJob(JobName, repoUrl='https://github.com/gummadic/poc-micro.git') 
 
 def buildPipelineJobs() {
     def testName = JobName + "_test"
-    createTestJob(testName)
+    createTestJob(testName, repoUrl)
 }
 
 buildPipelineJobs()
