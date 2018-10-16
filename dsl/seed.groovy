@@ -2,6 +2,16 @@
 
 import jenkins.model.*
     
+folder("foo") {
+  displayName('foo')
+  description('A folder with all my foo')
+}
+
+folder("baar") {
+  displayName('baar')
+  description('A folder with all my baar')
+}
+
 def createTestJob(JobName, repoUrl) {
     multibranchPipelineJob(folder-test/JobName) {
         branchSources {
@@ -16,11 +26,7 @@ def createTestJob(JobName, repoUrl) {
     }
 }
 
-def buildPipelineJobs() {
-    folder('project-a') {
-        displayName('Project A')
-        description('Folder for project A')
-    }   
+def buildPipelineJobs() {  
     def testName = JobName + "_test"
     createTestJob(testName, repoUrl)
 }
