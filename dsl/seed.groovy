@@ -1,6 +1,6 @@
 
 
-def createTestJob(JobName, repoUrl) {
+def createTestJob(JobName, repoUrl='https://github.com/gummadic/poc-micro.git') {
     folder('folder-test') {
     description('Folder containing all jobs for folder-test')
     }
