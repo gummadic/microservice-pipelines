@@ -19,7 +19,7 @@ def createTestJob(JobName, repoUrl='https://github.com/gummadic/poc-micro.git') 
 
 def buildPipelineJobs() {
     def testName = JobName + "_test"
-    createTestJob(testName, repoUrl)
+    createTestJob(testName)
 }
 
 buildPipelineJobs()
